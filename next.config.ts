@@ -1,8 +1,37 @@
-import type { NextConfig } from "next";
+import NextFederationPlugin from '@module-federation/nextjs-mf';
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
   reactStrictMode: true,
+  webpack: (config: any, options: any) => {
+    config.plugins.push(
+      new NextFederationPlugin({
+        name: 'adminMFE',
+        library: { type: 'var', name: 'adminMFE' },
+        filename: 'static/runtime/remoteEntry.js',
+        exposes: {
+          './Header': './src/components/Header',
+        },
+        shared: {
+          react: {
+            singleton: true,
+            requiredVersion: false,
+          },
+          'react-dom': {
+            singleton: true,
+            requiredVersion: false,
+          },
+        },
+        extraOptions: {
+          debug: false,
+          exposePages: false,
+          enableImageLoaderFix: false,
+          enableUrlLoaderFix: false,
+          skipSharingNextInternals: true,
+        },
+      })
+    );
+    return config;
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
