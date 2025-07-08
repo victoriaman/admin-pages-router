@@ -14,11 +14,13 @@ const nextConfig = {
         shared: {
           react: {
             singleton: true,
-            requiredVersion: false,
+            requiredVersion: '19.0.0',
+            eager: true
           },
           'react-dom': {
             singleton: true,
-            requiredVersion: false,
+            requiredVersion: '19.0.0',
+            eager: true
           },
         },
         extraOptions: {
@@ -30,6 +32,14 @@ const nextConfig = {
         },
       })
     );
+
+    // config.resolve.alias = {
+    //   ...(config.resolve.alias || {}),
+    //   react: require.resolve('react'),
+    //   'react-dom': require.resolve('react-dom'),
+    // };
+
+
     return config;
   },
 };
