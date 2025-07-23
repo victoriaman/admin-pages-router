@@ -8,7 +8,7 @@ const Header: React.FC = () => {
 
   return (
     <header>
-      <h1 className='text-green-950'>Next.js 15 Micro Frontend Header Auto update {count}</h1>
+      <h1 className='text-lime-300'>Next.js 15 Micro Frontend Header Auto update {count}</h1>
       <button onClick={handleClick}>Increment +1</button>
     </header>
   );
