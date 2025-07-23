@@ -15,6 +15,12 @@ const Header: React.FC<HeaderProps> = ({initializeCounter = 0}) => {
     <header>
       <h1 className='text-lime-300'>Next.js 15 Micro Frontend Header Auto update {count}</h1>
       <button onClick={handleClick}>Increment +1</button>
+      <img
+        src="/next.svg"
+        alt="Next.js Logo"
+        className="dark:invert"
+        width={180}
+        height={37} />
     </header>
   );
 };
