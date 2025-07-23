@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
-const Header: React.FC = () => {
-  const [count, setCount] = useState(0);
+
+interface HeaderProps {
+  initialCounter?: number;
+}
+
+const Header: React.FC<HeaderProps> = ({initialCounter = 0}) => {
+  const [count, setCount] = useState(initialCounter);
 
    const handleClick = () => {
     setCount(prev => prev + 1);
