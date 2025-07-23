@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({initializeCounter = 0}) => {
       <h1 className='text-lime-300'>Next.js 15 Micro Frontend Header Auto update {count}</h1>
       <button onClick={handleClick}>Increment +1</button>
       <img
-        src={isProd ? 'https://victoriaman.github.io/admin-pages-router/next.svg' : '/next.svg'}
+        src={isProd ? `${process.env.PRODUCTION_PATH}/next.svg` : '/next.svg'}
         alt="Next.js Logo"
         className="dark:invert"
         width={180}
